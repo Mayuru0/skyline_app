@@ -67,9 +67,18 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Page'),
-        backgroundColor: const Color.fromARGB(255, 3, 80, 143),
-      ),
+    leading: IconButton(
+        icon: const Icon(Icons.arrow_back),
+        color: Colors.white,
+        onPressed: () {
+            Navigator.pushNamed(context, '/');
+        },
+    ),
+    title: const Text('Login Page',
+    style: TextStyle(color: Colors.white),
+    ),
+    backgroundColor: const Color.fromARGB(255, 3, 80, 143),
+),
       body: Stack(
         children: [
           // Background Image Layer with Opacity

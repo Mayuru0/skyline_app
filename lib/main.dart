@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:skyline/screens/home_screen.dart';
 import 'package:skyline/screens/login_screen.dart';
+import 'package:skyline/screens/profile_screen.dart';
 import 'package:skyline/screens/register_screen.dart';
 import 'package:skyline/screens/welcome_screen.dart';
 
@@ -19,9 +20,10 @@ class MainApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const WelcomeScreen(),
-        '/login': (context) => LoginScreen(),
-        '/register': (context) => RegisterScreen(),
-        '/home': (context) => HomeScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/register': (context) => const RegisterScreen(),
+        '/home': (context) =>const HomeScreen(),
+        '/profile': (context) =>const ProfileScreen(),
         
       },
       

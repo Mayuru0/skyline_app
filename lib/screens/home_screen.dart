@@ -1,8 +1,14 @@
-            import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {  // Changed to StatefulWidget
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {  // Created State class
+  int _selectedIndex = 0;
 
 Widget _buildQuickActionButton(IconData icon, String label) {
     return Column(
@@ -179,9 +185,12 @@ Widget _buildQuickActionButton(IconData icon, String label) {
                   const SizedBox(height: 24),
                   const Text(
                     'Quick Actions',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,
+                    
+                    ),
                   ),
                   const SizedBox(height: 16),
+                  
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -218,13 +227,30 @@ Widget _buildQuickActionButton(IconData icon, String label) {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Explore'),
           BottomNavigationBarItem(icon: Icon(Icons.airplane_ticket), label: 'Bookings'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'profile'),
         ],
         currentIndex: 0,
         selectedItemColor: const Color.fromARGB(255, 3, 80, 143),
         onTap: (index) {
-          // TODO: Implement navigation
+          setState(() {
+            _selectedIndex = index;
+            switch (index) {
+              case 0:
+                Navigator.pushNamed(context, '/home');
+                break;
+              case 1:
+                Navigator.pushNamed(context, '/explore');
+                break;
+              case 2:
+                Navigator.pushNamed(context, '/bookings');
+                break;
+              case 3:
+                Navigator.pushNamed(context, '/profile');
+                break;
+            }
+          });
         },
+        
       ),
     );
   }
